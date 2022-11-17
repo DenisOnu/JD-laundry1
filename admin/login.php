@@ -1,7 +1,7 @@
 <?php 
     include('../config.php');
 
-    include(ROOT_PATH. '/admin/server.php');
+    include('server.php');
 ?>
 <!DOCTYPE html>
 <html>

@@ -1,6 +1,6 @@
 <?php
     include('../config.php');
-    include(ROOT_PATH . '/admin/server.php');
+    include('server.php');
 
     //ensure only logged in users can access the page
     if (!isset($_SESSION['username'])) {
