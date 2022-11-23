@@ -25,10 +25,10 @@
 </head>
 <body class="loginback">
     <div class="container">
-        <div class="row">
-            <div class="col-2 col-sm-3 col-lg-4"></div>
+        <div class="row" style="height: 100vh;">
+            <div class="col-1 col-sm-3 col-lg-4"></div>
 
-            <div class="login col-8 col-sm-6 col-lg-4">
+            <div class="login col-10 col-sm-6 col-lg-4 my-auto">
                 
                 <div class="header text-center">
                     <h1>Login</h1>
@@ -52,7 +52,7 @@
                 </form>
             </div>
 
-            <div class="col-2 col-sm-3 col-lg-4"></div>
+            <div class="col-1 col-sm-3 col-lg-4"></div>
         </div>
         
         

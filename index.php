@@ -1,3 +1,7 @@
+<?php 
+  include("config.php");
+  include('admin/server.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,9 +26,18 @@
   <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
   <link href="lib/magnific-popup/magnific-popup.css" rel="stylesheet">
+  <script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
 
   <!-- Main Stylesheet File -->
   <link href="css/style.css" rel="stylesheet">
+  
+  <script src="js/bootstrap.min.js"></script>
+  <script>
+      // adding name attribute to the pricing modal
+      function addName(book) {
+        document.getElementById("link").setAttribute("name", book);
+      }
+  </script>
 </head>
 
 <body>
@@ -36,7 +49,7 @@
     <div class="container">
 
       <div id="logo" class="pull-left">
-        <h1><a href="#intro" class="scrollto">JD Laundry</a></h1>
+        <h1><a href="#intro" class="scrollto"><?php echo $iconv ?></a></h1>
         <!-- Uncomment below if you prefer to use an image logo but a little size styling will be required -->
         <!-- <a href="#intro"><img src="img/jd.png" alt="" title=""></a> -->
       </div>
@@ -64,9 +77,9 @@
 
     <div class="intro-text">
       <p>Welcome to</p>
-      <h2>John Doe Cleaning Services</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, fugit.</p>
-      <a href="#about" class="btn-get-started scrollto">Get Started</a>
+      <h2><?php echo $namev ?></h2>
+      <p><?php echo $descriptionv ?></p>
+      <a href="#pricing" class="btn-get-started scrollto">Get Started</a>
     </div>
 
   </section><!-- #intro -->
@@ -127,14 +140,21 @@
       Call To Action Section
     ============================-->
     <section id="call-to-action">
+      <h2 class="text-center">Our Pledge To You</h2>
+      <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, fuga?</p>
       <div class="container">
-        <div class="row">
-          <div class="col-lg-9 text-center text-lg-left">
-            <h3 class="cta-title">Call To Action</h3>
-            <p class="cta-text"> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <div class="row text-center">
+          <div class="cta col-4">
+            <iconify-icon icon="ion:thumbs-up-outline" id="icon"></iconify-icon>
+            <h4>Trustworthy</h4>
           </div>
-          <div class="col-lg-3 cta-btn-container text-center">
-            <a class="cta-btn align-middle" href="#">Call To Action</a>
+          <div class="cta col-4">
+            <iconify-icon icon="ion:shield-checkmark-outline" id="icon"></iconify-icon>
+            <h4>Quality</h4>
+          </div>
+          <div class="cta col-4">
+            <iconify-icon icon="ion:phone-portrait-outline" id="icon"></iconify-icon>
+            <h4>Convenient</h4>
           </div>
         </div>
 
@@ -165,12 +185,12 @@
             <div class="row">
 
               <div class="col-lg-6 col-md-6 box wow fadeInRight">
-                <div class="icon"><i class="ion-ios-speedometer-outline"></i></div>
+                <div class="icon"><i class="ion-ios-home-outline"></i></div>
                 <h4 class="title"><a href="">House Cleaning</a></h4>
                 <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident clarida perendo.</p>
               </div>
               <div class="col-lg-6 col-md-6 box wow fadeInRight" data-wow-delay="0.1s">
-                <div class="icon"><i class="ion-ios-flask-outline"></i></div>
+                <div class="icon"><i class="ion-ios-body-outline"></i></div>
                 <h4 class="title"><a href="">Door to Door</a></h4>
                 <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata noble dynala mark.</p>
               </div>
@@ -180,7 +200,7 @@
                 <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur teleca starter sinode park ledo.</p>
               </div>
               <div class="col-lg-6 col-md-6 box wow fadeInRight" data-wow-delay="0.3s">
-                <div class="icon"><i class="ion-ios-analytics-outline"></i></div>
+                <div class="icon"><i class="ion-ios-sunny-outline"></i></div>
                 <h4 class="title"><a href="">Dry Cleaning</a></h4>
                 <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum dinoun trade capsule.</p>
               </div>
@@ -213,7 +233,7 @@
           <div class="col-lg-4 col-md-6">
             <div class="box wow fadeInLeft">
               <h3>Home Cleaning</h3>
-              <h4><sup>$</sup>30</h4>
+              <h4><sup>&#8358;</sup><?php echo $homev ?></h4>
               <ul>
                 <li><i class="ion-android-checkmark-circle"></i> Quam adipiscing vitae proin</li>
                 <li><i class="ion-android-checkmark-circle"></i> Nec feugiat nisl pretium</li>
@@ -221,14 +241,14 @@
                 <li><i class="ion-android-checkmark-circle"></i> Pharetra massa massa ultricies</li>
                 <li><i class="ion-android-checkmark-circle"></i> Massa ultricies mi quis hendrerit</li>
               </ul>
-              <a href="#" class="get-started-btn">Book Now</a>
+              <a href="#" class="get-started-btn" data-toggle="modal" data-target="#myModal" onclick="addName('homeBtn')">Book Now</a>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6">
             <div class="box featured wow fadeInUp">
               <h3>Dry Cleaning</h3>
-              <h4><sup>$</sup>20</h4>
+              <h4><sup>&#8358;</sup><?php echo $dryv ?></h4>
               <ul>
                 <li><i class="ion-android-checkmark-circle"></i> Quam adipiscing vitae proin</li>
                 <li><i class="ion-android-checkmark-circle"></i> Nec feugiat nisl pretium</li>
@@ -236,14 +256,14 @@
                 <li><i class="ion-android-checkmark-circle"></i> Pharetra massa massa ultricies</li>
                 <li><i class="ion-android-checkmark-circle"></i> Massa ultricies mi quis hendrerit</li>
               </ul>
-              <a href="#" class="get-started-btn">Book Now</a>
+              <a href="#" class="get-started-btn" data-toggle="modal" data-target="#myModal" onclick="addName('dryBtn')">Book Now</a>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6">
             <div class="box wow fadeInRight">
               <h3>Car Wash</h3>
-              <h4><sup>$</sup>20</h4>
+              <h4><sup>&#8358;</sup><?php echo $carv ?></h4>
               <ul>
                 <li><i class="ion-android-checkmark-circle"></i> Quam adipiscing vitae proin</li>
                 <li><i class="ion-android-checkmark-circle"></i> Nec feugiat nisl pretium</li>
@@ -251,7 +271,7 @@
                 <li><i class="ion-android-checkmark-circle"></i> Pharetra massa massa ultricies</li>
                 <li><i class="ion-android-checkmark-circle"></i> Massa ultricies mi quis hendrerit</li>
               </ul>
-              <a href="#" class="get-started-btn">Book Now</a>
+              <a class="get-started-btn" data-toggle="modal" data-target="#myModal" onclick="addName('carBtn')">Book Now</a>
             </div>
           </div>
 
@@ -259,7 +279,48 @@
       </div>
     </section><!-- #pricing -->
 
+     <!-- The Modal -->
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">New Booking</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
 
+        <!-- Modal body -->
+        <div class="modal-body">
+          <form action="index.php" method="post">
+          <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="text" class="form-control" id="email" name="email" placeholder="Enter email address" required>
+            </div>
+            <div class="mb-3">
+                <label for="phone" class="form-label">Phone Number</label>
+                <input type="text" class="form-control" id="phone" name="phone"  placeholder="Enter your phone number" required>
+            </div>
+            <div class="mb-3">
+                <label for="address" class="form-label">House Address</label>
+                <input type="text" class="form-control" id="address" name="address"  placeholder="Enter your home address" required>
+            </div>
+            <div class="mb-3">
+                <label for="msg" class="form-label">Message</label>
+                <textarea name="msg" class="form-control" id="msg" cols="30" rows="2"  placeholder="Please drop any extra message"></textarea>
+            </div>
+            <input type="submit" class="btn btn-admin btn-lg modalSub" name="" id="link" value="Register">
+
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
     <!--==========================
       Frequently Asked Questions Section
     ============================-->
@@ -370,34 +431,6 @@
               </div>
             </div>
           </div>
-
-          <!-- <div class="col-lg-3 col-md-6">
-            <div class="member">
-              <div class="pic"><img src="img/team/team-3.jpg" alt=""></div>
-              <h4>William Anderson</h4>
-              <span>CTO</span>
-              <div class="social">
-                <a href=""><i class="fa fa-twitter"></i></a>
-                <a href=""><i class="fa fa-facebook"></i></a>
-                <a href=""><i class="fa fa-google-plus"></i></a>
-                <a href=""><i class="fa fa-linkedin"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6">
-            <div class="member">
-              <div class="pic"><img src="img/team/team-4.jpg" alt=""></div>
-              <h4>Amanda Jepson</h4>
-              <span>Accountant</span>
-              <div class="social">
-                <a href=""><i class="fa fa-twitter"></i></a>
-                <a href=""><i class="fa fa-facebook"></i></a>
-                <a href=""><i class="fa fa-google-plus"></i></a>
-                <a href=""><i class="fa fa-linkedin"></i></a>
-              </div>
-            </div>
-          </div> -->
         </div>
 
       </div>
@@ -418,48 +451,48 @@
 
           <div class="col-lg-4 col-md-6 col-6">
             <div class="gallery-item wow fadeInUp">
-              <a href="img/pexels-muhammadtaha-ibrahim-2517866.jpg" class="gallery-popup">
-                <img src="img/pexels-muhammadtaha-ibrahim-2517866.jpg" alt="">
+              <a href="admin/image/<?php echo $image1v ?>" class="gallery-popup">
+                <img src="admin/image/<?php echo $image1v ?>" alt="">
               </a>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 col-6">
             <div class="gallery-item wow fadeInUp">
-              <a href="img/pexels-pixabay-325876.jpg" class="gallery-popup">
-                <img src="img/pexels-pixabay-325876.jpg" alt="">
+              <a href="admin/image/<?php echo $image2v ?>" class="gallery-popup">
+                <img src="admin/image/<?php echo $image2v ?>" alt="">
               </a>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 col-6">
             <div class="gallery-item wow fadeInUp">
-              <a href="img/pexels-dom-j-45980.jpg" class="gallery-popup">
-                <img src="img/pexels-dom-j-45980.jpg" alt="">
+              <a href="admin/image/<?php echo $image3v ?>" class="gallery-popup">
+                <img src="admin/image/<?php echo $image3v ?>" alt="">
               </a>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 col-6">
             <div class="gallery-item wow fadeInUp">
-              <a href="img/pexels-pixabay-267202.jpg" class="gallery-popup">
-                <img src="img/pexels-pixabay-267202.jpg" alt="">
+              <a href="admin/image/<?php echo $image4v ?>" class="gallery-popup">
+                <img src="admin/image/<?php echo $image4v ?>" alt="">
               </a>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 col-6">
             <div class="gallery-item wow fadeInUp">
-              <a href="img/pexels-muhammadtaha-ibrahim-2517866.jpg" class="gallery-popup">
-                <img src="img/pexels-muhammadtaha-ibrahim-2517866.jpg" alt="">
+              <a href="admin/image/<?php echo $image5v ?>" class="gallery-popup">
+                <img src="admin/image/<?php echo $image5v ?>" alt="">
               </a>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 col-6">
             <div class="gallery-item wow fadeInUp">
-              <a href="img/pexels-pixabay-325876.jpg" class="gallery-popup">
-                <img src="img/pexels-pixabay-325876.jpg" alt="">
+              <a href="admin/image/<?php echo $image6v ?>" class="gallery-popup">
+                <img src="admin/image/<?php echo $image6v ?>" alt="">
               </a>
             </div>
           </div>
@@ -544,7 +577,7 @@
     </section><!-- #contact -->
 
   </main>
-
+  
   <!--==========================
     Footer
   ============================-->
@@ -553,14 +586,14 @@
       <div class="row">
         <div class="col-lg-6 text-lg-left text-center">
           <div class="copyright">
-            &copy; Copyright <strong>JD L</strong>. All Rights Reserved
+            &copy; Copyright <a href="admin/index.php" style="color: inherit;" target=”_blank”><strong>JD Laundry</strong></a>. All Rights Reserved
           </div>
           
         </div>
         <div class="col-lg-6">
           <nav class="footer-links text-lg-right text-center pt-2 pt-lg-0">
-            <a href="admin/index.php" class="scrollto">Home</a>
-            <a href="#about" class="scrollto">About</a>
+            <a href="#intro" class="scrollto">Home</a>
+            <a href="#pricing" class="scrollto">Place Order</a>
             <a href="#">Privacy Policy</a>
             <a href="#">Terms of Use</a>
           </nav>

@@ -39,7 +39,7 @@
     <!-- Main Stylesheet File -->
     <link href="../css/style.css" rel="stylesheet">
 </head>
-<body>
+<body class="adbody">
      <!--==========================
     Header
     ============================-->
@@ -47,7 +47,7 @@
         <div class="container">
 
             <div id="logo" class="pull-left">
-                <h1><a href="#intro" class="scrollto">JD Admin Panel</a></h1>
+                <h1><a href="#" class="scrollto">JD Admin Panel</a></h1>
                 <!-- Uncomment below if you prefer to use an image logo but a little size styling will be required -->
                 <!-- <a href="#intro"><img src="img/jd.png" alt="" title=""></a> -->
             </div>
@@ -57,7 +57,7 @@
                 <li class="menu-active"><a href="#"><strong>Hello <?php echo $_SESSION['username']; ?></strong></a></li>
                 <li><a href="" data-toggle="modal" data-target="#myModal">Register New Admin</a></li>
                 <li><a href="logout.php">Log Out</a></li>
-                <li><a href="../index.html" target="_blank" rel="noopener noreferrer">Main Site</a></li>
+                <li><a href="../index.php" target="_blank" rel="noopener noreferrer">Main Site</a></li>
                 </ul>
             </nav><!-- #nav-menu-container -->
         </div> 
@@ -87,13 +87,13 @@
             </div>
             <div class="mb-3">
                 <label for="password_1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password_1" name="password_1" required>
+                <input type="password" class="form-control" id="password_1" name="password_1"  placeholder="Enter Password" required>
             </div>
             <div class="mb-3">
                 <label for="password_2" class="form-label">Repeat Password</label>
-                <input type="password" class="form-control" id="password_2" name="password_2" required>
+                <input type="password" class="form-control" id="password_2" name="password_2" placeholder="Repeat Password" required>
             </div>
-            <input type="submit" class="btn btn-primary btn-lg" name="reg_user" value="Register">
+            <input type="submit" class="btn btn-admin btn-lg" name="reg_user" value="Register">
 
           </form>
         </div>
@@ -162,7 +162,7 @@
                 <div class="col-6">
                     <div class="mb-3">
                         <label for="image1" class="form-label">Image 1</label>
-                        <input type="file" name="image1" id="image1" onchange="readURL(this, '#img1');">
+                        <input type="file" accept="image/png, image/jpg, image/gif, image/jpeg" name="image1" id="image1" onchange="readURL(this, '#img1');">
                     </div>
                 </div>
                 <div class="col-12 col-md-6">
@@ -170,8 +170,8 @@
                 </div>
                 <div class="col-6">
                     <div class="mb-3">
-                        <label for="image2" class="form-label">Image 1</label>
-                        <input type="file" name="image2" id="image2" onchange="readURL(this, '#img2');">
+                        <label for="image2" class="form-label">Image 2</label>
+                        <input type="file" accept="image/png, image/jpg, image/gif, image/jpeg" name="image2" id="image2" onchange="readURL(this, '#img2');">
                     </div>
                 </div>
                 <div class="col-12 col-md-6">
@@ -179,8 +179,8 @@
                 </div>
                 <div class="col-6">
                     <div class="mb-3">
-                        <label for="image3" class="form-label">Image 1</label>
-                        <input type="file" name="image3" id="image3" onchange="readURL(this, '#img3');">
+                        <label for="image3" class="form-label">Image 3</label>
+                        <input type="file" accept="image/png, image/jpg, image/gif, image/jpeg" name="image3" id="image3" onchange="readURL(this, '#img3');">
                     </div>
                 </div>
                 <div class="col-12 col-md-6">
@@ -188,8 +188,8 @@
                 </div>
                 <div class="col-6">
                     <div class="mb-3">
-                        <label for="image4" class="form-label">Image 1</label>
-                        <input type="file" name="image4" id="image4" onchange="readURL(this, '#img4');">
+                        <label for="image4" class="form-label">Image 4</label>
+                        <input type="file" accept="image/png, image/jpg, image/gif, image/jpeg" name="image4" id="image4" onchange="readURL(this, '#img4');">
                     </div>
                 </div>
                 <div class="col-12 col-md-6">
@@ -197,8 +197,8 @@
                 </div>
                 <div class="col-6">
                     <div class="mb-3">
-                        <label for="image5" class="form-label">Image 1</label>
-                        <input type="file" name="image5" id="image5" onchange="readURL(this, '#img5');">
+                        <label for="image5" class="form-label">Image 5</label>
+                        <input type="file" accept="image/png, image/jpg, image/gif, image/jpeg" name="image5" id="image5" onchange="readURL(this, '#img5');">
                     </div>
                 </div>
                 <div class="col-12 col-md-6">
@@ -206,19 +206,20 @@
                 </div>
                 <div class="col-6">
                     <div class="mb-3">
-                        <label for="image6" class="form-label">Image 1</label>
-                        <input type="file" name="image6" id="image6" onchange="readURL(this, '#img6');">
+                        <label for="image6" class="form-label">Image 6</label>
+                        <input type="file" accept="image/png, image/jpg, image/gif, image/jpeg" name="image6" id="image6" onchange="readURL(this, '#img6');">
                     </div>
                 </div>
                 <div class="col-12 col-md-6">
                     <img src="./image/<?php echo $image6v; ?>" alt="" class="img-fluid rounded-circle adminpic" id="img6">
                 </div>
             </div>
-            <input type="submit" class="btn btn-primary btn-lg" name="submit" value="Update">
+            <p id="red">Please ensure all images are formatted to dimensions of about 2804&times;2002</p>
+            <input type="submit" class="btn btn-admin btn-lg" name="submit" value="Update">
         </form>
         
     </div>
-    <div id="footer" class="p-3 mb-2 bg-primary text-white">
+    <div id="footer" class="p-3 mb-2 text-white">
         <p class="text-center">Copyright &copy; - JD Laundry Services</p>
     </div>
 
@@ -231,7 +232,6 @@
   <script src="../lib/wow/wow.min.js"></script>
   <script src="../lib/superfish/hoverIntent.js"></script>
   <script src="../lib/superfish/superfish.min.js"></script>
-
 
   <!-- Template Main Javascript File -->
   <script src="../js/main.js"></script>

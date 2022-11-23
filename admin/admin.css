@@ -12,7 +12,6 @@
     border: 1px solid grey;
     border-radius: 25px;
     box-shadow: 10px 10px 5px rgba(36, 36, 36, 0.574);
-    height: 70vh;
 }
 
 .header {
@@ -32,4 +31,5 @@
     border-radius: 40px;
     color: white;
     margin-top: 10%;
+    margin-bottom: 10%;
 }

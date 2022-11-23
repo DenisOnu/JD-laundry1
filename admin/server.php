@@ -48,17 +48,26 @@
         }
     } 
 
+    //selecting data from database
+    $sqli = "SELECT * FROM admin WHERE id=1";
+    $resulti = mysqli_query($conn, $sqli);
+    $admini = mysqli_fetch_assoc($resulti);
 
      //image formatting to send to database
      function imgFormat($vname, $iname) {
-        global $conn;
+        global $conn, $admini;
         $vname = $_FILES[$iname]["name"];
         $tempname = $_FILES[$iname]["tmp_name"];
         $folder = "./image/" . $vname;
-        if (move_uploaded_file($tempname, $folder)) {
-            error_log("image uploaded successfully");
+        // if (move_uploaded_file($tempname, $folder)) {
+        //     error_log("image uploaded successfully");
+        // } else {
+        //     error_log("failed to upload image");
+        // }
+        if ($vname!="") {
+            move_uploaded_file($tempname, $folder);
         } else {
-            error_log("failed to upload image");
+            $vname = $admini[$iname];
         }
         return $vname;
     }
@@ -79,7 +88,9 @@
         $image5 = imgFormat('$image5', 'image5');
         $image6 = imgFormat('$image6', 'image6');
         //sql
-        $query = "INSERT INTO admin (icon, name, description, address, homePrice, carPrice, dryPrice, image1, image2, image3, image4, image5, image6, created_at, updated_at) VALUES ('$icon', '$name', '$description', '$address', '$home', '$car', '$dry', '$image1', '$image2', '$image3', '$image4', '$image5', '$image6', now(), now())";
+        // $query = "INSERT INTO admin (icon, name, description, address, homePrice, carPrice, dryPrice, image1, image2, image3, image4, image5, image6, created_at, updated_at) VALUES ('$icon', '$name', '$description', '$address', '$home', '$car', '$dry', '$image1', '$image2', '$image3', '$image4', '$image5', '$image6', now(), now())";
+
+        $query = "UPDATE admin SET icon='$icon', name='$name', description='$description', address='$address', homePrice='$home', carPrice='$car', dryPrice='$dry', image1='$image1', image2='$image2', image3='$image3', image4='$image4', image5='$image5', image6='$image6', updated_at=now() WHERE id=1";
         mysqli_query($conn, $query);
 
         
