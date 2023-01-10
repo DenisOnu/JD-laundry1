@@ -47,7 +47,7 @@
         <div class="container">
 
             <div id="logo" class="pull-left">
-                <h1><a href="#" class="scrollto">JD Admin Panel</a></h1>
+                <h1><a href="#" class="scrollto">SA Admin Panel</a></h1>
                 <!-- Uncomment below if you prefer to use an image logo but a little size styling will be required -->
                 <!-- <a href="#intro"><img src="img/jd.png" alt="" title=""></a> -->
             </div>
@@ -127,20 +127,12 @@
                 <h5><strong>Website Configs</strong></h5>
             </div>
             <div class="mb-3">
-                <label for="icon" class="form-label">Icon Name</label>
-                <input type="text" class="form-control" id="icon" name="icon" value="<?php echo $iconv ?>" placeholder="Site Icon Name">
-            </div>
-            <div class="mb-3">
                 <label for="name" class="form-label">Business Name</label>
                 <input type="text" class="form-control" id="name" name="name" value="<?php echo $namev ?>" placeholder="Business Name">
             </div>
             <div class="mb-3">
                 <label for="description" class="form-label">Business Description</label>
                 <textarea class="form-control" id="description" name="description" rows="2"><?php echo $descriptionv ?></textarea>
-            </div>
-            <div class="mb-3">
-                <label for="address" class="form-label">Address</label>
-                <input type="text" class="form-control" id="address" name="address" value="<?php echo $addressv ?>" placeholder="Address">
             </div>
             <h5>Pricing</h5>
             <div class="row">

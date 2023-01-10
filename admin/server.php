@@ -74,10 +74,8 @@
 
     if(isset($_POST['submit'])) {
         //assign variables
-        $icon = $_POST['icon'];
         $name = $_POST['name'];
         $description = $_POST['description'];
-        $address = $_POST['address'];
         $home = $_POST['home'];
         $car = $_POST['car'];
         $dry = $_POST['dry'];
@@ -88,9 +86,9 @@
         $image5 = imgFormat('$image5', 'image5');
         $image6 = imgFormat('$image6', 'image6');
         //sql
-        // $query = "INSERT INTO admin (icon, name, description, address, homePrice, carPrice, dryPrice, image1, image2, image3, image4, image5, image6, created_at, updated_at) VALUES ('$icon', '$name', '$description', '$address', '$home', '$car', '$dry', '$image1', '$image2', '$image3', '$image4', '$image5', '$image6', now(), now())";
+        // $query = "INSERT INTO admin (name, description, homePrice, carPrice, dryPrice, image1, image2, image3, image4, image5, image6, created_at, updated_at) VALUES ('$name', '$description', '$home', '$car', '$dry', '$image1', '$image2', '$image3', '$image4', '$image5', '$image6', now(), now())";
 
-        $query = "UPDATE admin SET icon='$icon', name='$name', description='$description', address='$address', homePrice='$home', carPrice='$car', dryPrice='$dry', image1='$image1', image2='$image2', image3='$image3', image4='$image4', image5='$image5', image6='$image6', updated_at=now() WHERE id=1";
+        $query = "UPDATE admin SET name='$name', description='$description', homePrice='$home', carPrice='$car', dryPrice='$dry', image1='$image1', image2='$image2', image3='$image3', image4='$image4', image5='$image5', image6='$image6', updated_at=now() WHERE id=1";
         mysqli_query($conn, $query);
 
         
@@ -100,10 +98,8 @@
     $sql = "SELECT * FROM admin WHERE id=1";
     $result = mysqli_query($conn, $sql);
     $admin = mysqli_fetch_assoc($result);
-    $iconv = $admin['icon'];
     $namev = $admin['name'];
     $descriptionv = $admin['description'];
-    $addressv = $admin['address'];
     $homev = $admin['homePrice'];
     $carv = $admin['carPrice'];
     $dryv = $admin['dryPrice'];

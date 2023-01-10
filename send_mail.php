@@ -42,4 +42,33 @@ function sendmail($booking) {
   }
 }
 
+//footer contact form
+if (isset($_POST['contact_msg'])) {
+  $name = $_POST['name'];
+  $email = $_POST['email'];
+  $subject = $_POST['subject'];
+  $emailSendMessage = $_POST['message'];
+  $to = "denisuchenna@gmail.com";
+  $headers = "MIME-Version: 1.0" . "\r\n";
+  $headers .= "Content-type:text/html;charset=UTF-8";
+  $message = "<html>
+  <head>
+  	<title>Mail</title>
+  </head>
+  <body>
+  	<h1> Fullname of Sponsor: " . $name . "</h1>
+  	<h2> Email of Sponsor: " . $email . "</h2>
+    <h4>Message to the couple: ".$emailSendMessage."</h4>
+  </body>
+  </html>";
+  if (mail($to, $subject, $message, $headers)) {
+   header("Location: index.php?success=1");
+    exit();
+  }else{
+   echo "sorry, Failed to send email. Please try again later";
+   header("Location: index.php");
+   exit();
+  }
+}
+
 ?>
